@@ -1,0 +1,111 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.img{
+    width: 150px;
+    height: 50px;
+}
+.im{
+    width: -3300px;
+}
+nav{
+    background-color: #fcfcfc;
+    justify-content: center;
+    text-align: center;
+}
+.container{
+    background-color: #eae9f1;
+}
+.navbar{
+    list-style-type: none;
+    margin: 0;
+    padding-top: 8px;
+    justify-content: center; 
+    
+    text-align: center;
+    display: flex; /* This makes the list items align horizontally */
+
+}
+
+sup{
+    color: red;
+}
+
+.navbar li {
+    margin: 0;
+    justify-content: center;
+    text-align: center;
+}
+hr {
+    border: none; /* Remove default border */
+    height: 1px; /* Set height of the line */
+    background-color: #333; /* Color of the line */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Shadow effect */
+    margin: 20px 0; /* Space around the line */
+}
+
+.navbar a {
+    display: block;
+    color: rgb(19, 16, 16);
+    text-align: center;
+    padding: 14px 20px;
+    justify-content: center;
+    text-align: center;
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    
+    background-color: #eeebeb;
+    padding: 16px;
+}
+.im {
+    width: 22px; 
+    height: 22px;
+    border-radius: 50%; 
+}
+.h4{
+    margin-bottom: -15px;
+    margin-top: -3px;
+    
+}
+.span1 a img{
+    width: 13%;
+    justify-content: center;
+    align-items: center;
+    margin-right: -5px;
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

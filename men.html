@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="men.css">
+</head>
+<body>
+    <nav class="">
+        <ul class="navbar">
+            <a href="index.html"><img src="logo.png" class="img"></a>
+            <li><a href="#" class="">MEN</a></li>
+            <li><a href="#" class="">WOMEN</a></li>
+            <li><a href="#" class="">KIDS</a></li>
+            <li><a href="#" class="">HOME & LIVING</a></li>
+            <li><a href="#" class="">BEAUTY</a></li>
+            <li><a href="#" class="">STUDIO<sup>NEW</sup></a></li>
+            <li><a href="additem.html" class="">ADD</a></li>
+            <li><a href="#"><img src="profile.jpg" class="im">
+                <h4 class="h4">Profile</h4>
+            </a></li>
+        <li><a href="wishlist.html"><img src="WISHLIST.png" class="im">
+                <h4 class="h4">Wishlist</h4>
+            </a></li>
+        <li><a href="bag.html"><img src="bag.jfif" class="im">
+                <h4 class="h4">Bag</h4>
+            </a></li>
+        </ul>
+        <hr class="hr" />
+    </nav>
+
+    <div class="container">
+        <div class="product-container">
+            <div>
+                <a href="#"><img src="https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/27161876/2024/6/11/2a6390d1-fe64-42ea-94c8-5455ef8ac8431718087476468-Mast--Harbour-Men-Shirts-8781718087476026-1.jpg" style="width: 85%;"></a>
+                <h1>Roadster</h1>
+                <h6>Sizes: 38</h6>
+                <button class="add-to-cart" data-name="Roadster Shirt" data-size="38" data-image="https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/27161876/2024/6/11/2a6390d1-fe64-42ea-94c8-5455ef8ac8431718087476468-Mast--Harbour-Men-Shirts-8781718087476026-1.jpg" onclick="addToCart('Roadster Shirt')">Add to Cart</button>
+            </div>
+            <div>
+                <a href="#"><img src="https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/11780934/2020/4/3/1ed79c22-68b5-491a-b673-e91e4411d8aa1585905063620HIGHLANDERMenOliveGreenBlackSlimFitCheckedCasualShirt1.jpg" style="width: 85%;"></a>
+                <h1>Campus Stub</h1>
+                <h6>Sizes: 28</h6>
+                <button class="add-to-cart" onclick="addToCart('Campus Stub Shirt')">Add to Cart</button>
+            </div>
+            <div>
+                <a href="#"><img src="https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/27069184/2024/5/8/45b3e395-1444-496d-8cc8-6332b5fb56fa1715151629800-HERENOW-Men-Shirts-321715151629569-5.jpg" style="width: 85%;"></a>
+                <h1>Roadster</h1>
+                <h6>Sizes: 35</h6>
+                <button class="add-to-cart" onclick="addToCart('Roadster Shirt')">Add to Cart</button>
+            </div>
+            <div>
+                <a href="#"><img src="https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/2024/AUGUST/12/N9JXwusW_527a68db55844f32b7abfa2d18b2b77a.jpg" style="width: 92%;"></a>
+                <h1>Roadster</h1>
+                <h6>Sizes: 48</h6>
+                <button class="add-to-cart" onclick="addToCart('Roadster Shirt')">Add to Cart</button>
+            </div>
+            <div>
+                <a href="#"><img src="https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/14641548/2023/9/21/ea50c555-02c7-45aa-b61d-7014126ccc2f1695295257077RoadsterMenYellowSlimFitOpaqueCasualShirt1.jpg" style="width: 85%;"></a>
+                <h1>Roadster</h1>
+                <h6>Sizes: 28</h6>
+                <button class="add-to-cart" onclick="addToCart('Roadster Shirt')">Add to Cart</button>
+            </div>
+            <div>
+                <a href="#"><img src="https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/28692936/2024/4/5/b4ad8b19-6365-411e-a8c7-30f96066d23d1712256097649CampusSutraMenClassicOpaqueStripedCasualShirt1.jpg" style="width: 85%;"></a>
+                <h1>Roadster</h1>
+                <h6>Sizes: 40</h6>
+                <button class="add-to-cart" onclick="addToCart('Roadster Shirt')">Add to Cart</button>
+            </div>
+            <div>
+                <a href="#"><img src="https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/17091614/2022/2/18/779ac019-8b8c-48f7-9c5e-b3e2fe3004b01645166457327-Men-White-Casual-Shirt-5731645166456476-1.jpg" style="width: 85%;"></a>
+                <h1>Roadster</h1>
+                <h6>Sizes: 57</h6>
+                <button class="add-to-cart" onclick="addToCart('Roadster Shirt')">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', () => {
+                const name = button.getAttribute('data-name');
+                const size = button.getAttribute('data-size');
+                const image = button.getAttribute('data-image');
+
+                const cartItem = { name, size, image };
+                let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                cart.push(cartItem);
+                localStorage.setItem('cart', JSON.stringify(cart));
+
+                alert(`${name} has been added to your cart!`);
+            });
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+

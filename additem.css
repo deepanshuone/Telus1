@@ -1,0 +1,29 @@
+.add-item-form {
+    margin: 20px;
+}
+
+.add-item-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.add-item-form label {
+    margin-bottom: 5px;
+}
+
+.add-item-form input {
+    margin-bottom: 10px;
+    padding: 5px;
+}
+
+.add-item-form button {
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.add-item-form button:hover {
+    background-color: #0056b3;
+}

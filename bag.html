@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart</title>
+    <link rel="stylesheet" href="bag.css">
+    
+</head>
+<body>
+
+    <div class="container">
+        <h1>Your Cart</h1>
+        <div id="cart-items"></div>
+        <button class="checkout-btn">Proceed to Checkout</button>
+    </div>
+
+    <script>
+        const cartItemsContainer = document.getElementById('cart-items');
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        if (cart.length === 0) {
+            cartItemsContainer.innerHTML = '<p>Your cart is empty!</p>';
+        } else {
+            cart.forEach(item => {
+                const itemDiv = document.createElement('div');
+                itemDiv.className = 'item';
+                itemDiv.innerHTML = `
+                    <img src="${item.image}" alt="${item.name}">
+                    <div class="item-details">
+                        <h3>${item.name}</h3>
+                        <p>Size: ${item.size}</p>
+                    </div>
+                    <button class="remove-btn">Remove</button>
+                `;
+                cartItemsContainer.appendChild(itemDiv);
+            });
+
+            // Remove functionality
+            const removeButtons = document.querySelectorAll('.remove-btn');
+            removeButtons.forEach((button, index) => {
+                button.addEventListener('click', () => {
+                    cart.splice(index, 1);
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    location.reload(); // Reload the page to reflect changes
+                });
+            });
+        }
+    </script>
+
+</body>
+</html>

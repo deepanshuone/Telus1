@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+    <style>
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px; 
+            margin-top: 20px;
+        }
+
+        /* Individual item styles */
+        .item {
+            text-align: center; /* Center text below the image */
+            width: 150px; /* Set width for each item */
+            position: relative; /* To position the delete button */
+        }
+
+        /* Image styles */
+        .item img {
+            width: 100%; /* Image takes full width of item */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 5px; /* Optional: Add some rounding to the corners */
+        }
+
+        .delete-button {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background-color: red;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            padding: 5px 10px;
+            font-size: 0.8rem;
+        }
+
+        .confirmation-message {
+            color: green;
+            margin: 10px 0;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul class="navbar">
+            <a href="index.html"><img src="logo.png" class="img"></a>
+            <li><a href="#">MEN</a></li>
+            <li><a href="#">WOMEN</a></li>
+            <li><a href="#">KIDS</a></li>
+            <li><a href="#">HOME & LIVING</a></li>
+            <li><a href="#">BEAUTY</a></li>
+            <li><a href="#">STUDIO<sup>NEW</sup></a></li>
+            <li><a href="#"><img src="profile.jpg" class="im"><h4 class="h4">Profile</h4></a></li>
+            <li><a href="#"><img src="WISHLIST.png" class="im"><h4 class="h4">Wishlist</h4></a></li>
+            <li><a href="#"><img src="bag.jfif" class="im"><h4 class="h4">Bag</h4></a></li>
+        </ul>
+        <hr class="hr" />
+    </nav>
+
+    <div class="add-item-form">
+        <h3>Add New Item</h3>
+        <form id="itemForm">
+            <label for="itemName">Item Name:</label>
+            <input type="text" id="itemName" name="itemName" required>
+            <label for="itemImageUrl">Image URL:</label>
+            <input type="text" id="itemImageUrl" name="itemImageUrl" required>
+            <label for="itemLink">Link URL:</label>
+            <input type="text" id="itemLink" name="itemLink" required>
+            <button type="submit">Add Item</button>
+        </form>
+    </div>
+
+    <div class="container" id="itemContainer">
+        <!-- Existing items -->
+        <div class="item">
+            <a href="#"><img style="margin-left: -10px;" src="https://assets.myntassets.com/f_webp,w_980,c_limit,fl_progressive,dpr_2.0/assets/images/2024/9/10/d3dc79c2-cde1-4439-8eae-ce7e001d31341725948839577-FLAT-400-Off-on-1st-Purchase-Strip-----8.jpg" alt=""></a>
+            <span class="item-name">Sample Item</span>
+            <button class="delete-button">Delete</button>
+        </div>
+    </div>
+
+    <script>
+        const itemContainer = document.getElementById('itemContainer');
+
+        // Load items from localStorage
+        window.onload = function() {
+            const items = JSON.parse(localStorage.getItem('items')) || [];
+            items.forEach(item => {
+                addItemToDOM(item.name, item.imageUrl, item.linkUrl);
+            });
+        };
+
+        document.getElementById('itemForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const itemName = document.getElementById('itemName').value;
+            const imageUrl = document.getElementById('itemImageUrl').value;
+            const linkUrl = document.getElementById('itemLink').value;
+
+            // Save item to localStorage
+            const items = JSON.parse(localStorage.getItem('items')) || [];
+            items.push({ name: itemName, imageUrl, linkUrl });
+            localStorage.setItem('items', JSON.stringify(items));
+
+            // Add item to DOM
+            addItemToDOM(itemName, imageUrl, linkUrl);
+
+            // Confirmation message
+            const confirmation = document.createElement('div');
+            confirmation.innerText = 'Item added successfully!';
+            confirmation.className = 'confirmation-message';
+            document.body.appendChild(confirmation);
+
+            // Remove confirmation after a few seconds
+            setTimeout(() => {
+                confirmation.remove();
+            }, 3000);
+
+            // Reset the form
+            document.getElementById('itemForm').reset();
+        });
+
+        function addItemToDOM(name, imageUrl, linkUrl) {
+            const newItem = document.createElement('div');
+            newItem.className = 'item';
+            newItem.innerHTML = `
+                <a href="${linkUrl}" target="_blank" rel="noopener noreferrer">
+                    <img src="${imageUrl}" alt="New Item" />
+                </a>
+                <span class="item-name">${name}</span>
+                <button class="delete-button" onclick="deleteItem(event)">Delete</button>
+            `;
+            itemContainer.appendChild(newItem);
+        }
+
+
+function deleteItem(event) {
+        const itemElement = event.target.parentElement;
+        const itemName = itemElement.querySelector('.item-name').innerText;
+
+        // Remove item from localStorage
+        const items = JSON.parse(localStorage.getItem('items')) || [];
+        const updatedItems = items.filter(item => item.name !== itemName);
+        localStorage.setItem('items', JSON.stringify(updatedItems));
+
+        // Remove item from DOM
+        itemContainer.removeChild(itemElement);
+    }
+    </script>
+</body>
+</html>
